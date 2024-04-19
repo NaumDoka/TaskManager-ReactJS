@@ -1,0 +1,491 @@
+main 
+{
+    max-width: 850px;
+    margin: 20px auto;
+}
+form 
+{
+    border: 3px solid #30313d;
+    border-radius: 10px;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+}
+div.card 
+{
+    border: 3px solid #30313d;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+div.task-section-container 
+{
+    background-color: #30313d;
+    border: 1px solid; 
+    border-radius: 5px; 
+    margin-top: 10px; 
+    margin-left: 5px;
+    padding: 12px;
+    max-height: 200px;
+    overflow: hidden;
+    animation-name: openAnimation;
+    animation-duration: 0.5s;
+    animation-timing-function: ease;
+    position: relative;
+    z-index: 1;
+}
+@keyframes openAnimation 
+{
+  from {
+    max-height: 0;
+  }
+  to {
+    max-height: 200px;
+  }
+}
+.task-section-container > div 
+{
+  margin-bottom: 5px;
+}
+.task-section-container .task-description,
+.task-section-container .task-due-date,
+.task-section-container .task-priority 
+{
+  padding: 2px;
+  margin-right: 0px;
+}
+div.todo-column,
+div.in-progress-column,
+div.completed-column
+{
+    width: calc(33.33% - 30px);
+    margin-right: 10px;
+    margin-top: 20px;
+    margin-left: 17px;
+    float: left;
+    border: 3px solid #30313d;
+    border-radius: 40px;
+    padding: 10px;
+    animation: glowy, 1s infinite alternate;
+}
+div.todo-column:hover,
+div.in-progress-column:hover,
+div.completed-column:hover 
+{
+    outline: 2px thin #30313d;
+}
+div.todo-column:hover
+{
+    box-shadow: 0 0 20px rgba(97, 218, 251, 0.7), 0 0 30px rgba(97, 218, 251, 0.5), 0 0 40px rgba(97, 218, 251, 0.3);
+}
+div.in-progress-column:hover 
+{
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.7), 0 0 30px rgba(255, 0, 0, 0.5), 0 0 40px rgba(255, 0, 0, 0.3);
+}
+div.completed-column:hover 
+{
+    box-shadow: 0 0 20px rgba(0, 128, 0, 0.7), 0 0 30px rgba(17, 196, 17, 0.774), 0 0 40px rgba(0, 128, 0, 0.3);
+}
+div.todo-column h3,
+div.in-progress-column h3,
+div.completed-column h3 
+{
+    text-align: center;
+}
+div.todo-column > *:not(:last-child),
+div.in-progress-column > *:not(:last-child),
+div.completed-column > *:not(:last-child) {
+    margin-bottom: 10px;
+}
+form input[type="text"],
+form input[type="number"],
+form input[type="date"] 
+{
+    background: none;
+    color: #fff;
+    border: 0;
+    border-bottom: 2px solid #30313d;
+    padding: 0 8px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    width: 100%;
+    font-family: 'Times New Roman', Times, serif;
+}
+form input:hover 
+{
+    box-shadow: 0 0 10px rgba(97, 218, 251, 0.7);
+}
+div.task input[type="date"]::-webkit-calendar-picker-indicator,
+input[type="date"]::-webkit-calendar-picker-indicator 
+{
+    filter: invert(1);
+    background-image: url(file:///C:/Users/Test/Downloads/calendar-and-clock-time-administration-and-organization-tools-symbol-svgrepo-com.svg);
+    background-size: contain; 
+    font-family: 'Times New Roman', Times, serif;
+}
+form button 
+{
+    background: linear-gradient(135deg, #61dafb, #61dafb);
+    border: 0; 
+    border-radius: 16px;
+    cursor: pointer;
+    padding: 8px 16px;
+    font-size: 16px;
+    color: #fff;
+    margin-top: 10px;
+    font-family: 'Times New Roman', Times, serif;
+    position: relative; 
+    overflow: hidden; 
+    z-index: 1; 
+    transition: transform 0.2s ease-in-out;
+    animation: glow 1s infinite alternate;
+}
+@keyframes glow 
+{
+    0% {
+        box-shadow: 0 0 10px rgba(97, 218, 251, 0.7), 0 0 20px rgba(97, 218, 251, 0.5), 0 0 30px rgba(97, 218, 251, 0.3);
+    }
+    100% {
+        box-shadow: 0 0 20px rgba(97, 218, 251, 0.5), 0 0 30px rgba(97, 218, 251, 0.3), 0 0 40px rgba(97, 218, 251, 0.1);
+    }
+}
+form button:hover 
+{
+    transform: translateY(-2px); 
+    box-shadow: 0 0 20px rgba(97, 218, 251, 0.7), 0 0 30px rgba(97, 218, 251, 0.5), 0 0 40px rgba(97, 218, 251, 0.3);
+}
+form button:active 
+{
+    transform: translateY(1px); 
+    box-shadow: 0 0 10px rgba(97, 218, 251, 0.7), 0 0 20px rgba(97, 218, 251, 0.5), 0 0 30px rgba(97, 218, 251, 0.3);
+}
+form button::after 
+{
+    content: '';
+    position: absolute;
+    top: 100%; 
+    left: 50%;
+    transform: translateX(-50%); 
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 80%); /* Radial gradient overlay */
+    animation: drip 2s linear infinite alternate; 
+}
+@keyframes drip 
+{
+    0% {
+        transform: translate(-50%, 100%); 
+        opacity: 0.5; 
+    }
+    100% {
+        transform: translate(-50%, 0%); 
+        opacity: 1; 
+    }
+}
+div.task 
+{
+    position: relative;
+    background-color: #30313d;
+    border-radius: 30px;
+    padding: 15px;
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    transition: opacity .3s linear;
+    padding-left: 40px; 
+    padding-right: 30px; 
+    padding-bottom: 30px;
+}
+div.task svg 
+{
+    height: 20px;
+    margin-right: 6px;
+    fill: #61dafb;
+}
+div.task:hover,
+div.task:active 
+{
+    box-shadow: 0 0 10px rgba(97, 218, 251, 0.7);
+}
+div.task.done 
+{
+    opacity: 0.6;
+}
+div.task-name, div.task form 
+{
+    width: 100%;
+    flex-grow: 1;
+    margin-bottom: 15px;
+}
+div.task span 
+{
+    position: relative;
+}
+div.task span:before 
+{
+    content: "";
+    display: none;
+    width: 0;
+    height: 1px;
+    background-color: #ddd;
+    position: absolute;
+    top: 10px;
+    transition: width .1s linear;
+}
+div.task.done span:before 
+{
+    width: 100%;
+}
+h1, h2 
+{
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+}
+div.checkbox 
+{
+    position: absolute;
+    top: 12px;
+    right: 15px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+button.trash-icon 
+{
+    position: relative;
+    top: 12px;
+    right: -155px;
+    background: none;
+    border: none;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+button.trash-icon svg
+{
+    fill: #61dafb;
+    height: 14px;
+}
+button.notes-icon 
+{
+    position: absolute;
+    top: 12px;
+    left: 10px;
+    background: none;
+    border: none;
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    z-index: 2;
+    margin-bottom: 10px;
+}
+div.notes 
+{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: fit-content;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  max-height: 200px;
+  animation-name: openAnimation;
+  animation-duration: 0.5s;
+  animation-timing-function: ease;
+}
+@keyframes openAnimation 
+{
+    from {
+      max-height: 0;
+    }
+    to {
+      max-height: 200px;
+    }
+}
+.notes-textarea 
+{
+    width: 80%;
+    min-height: 100px;
+    resize: none;
+    margin-left: 20px;
+    background-color: #30313d;
+    border: 2px solid #555;
+    border-radius: 15px;
+    padding: 8px;
+    color: #fff;
+    font-family: 'Times New Roman', Times, serif;
+    position: relative;
+    z-index: 1;
+    animation-name: openAnimation;
+    animation-duration: 0.5s; 
+    animation-timing-function: ease; 
+}
+@keyframes openAnimation 
+{
+    from {
+      max-height: 0;
+    }
+    to {
+      max-height: 100px;
+    }
+}
+.notes-buttons 
+{
+    display: flex;
+    justify-content: space-evenly;
+}
+div.notes-buttons button 
+{
+    background-color: #61dafb;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 16px;
+    color: #fff;
+    cursor: pointer;
+    font-family: 'Times New Roman', Times, serif;
+}
+.notes-buttons button:hover 
+{
+    background-color: rgba(97, 218, 251, 0.7);
+}
+button.hide-show-button 
+{
+    position: absolute;
+    top: 30 px;
+    left: 8px;
+    background: none;
+    border: none;
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    z-index: 0;
+    margin-bottom: 10px;
+}
+div.task input 
+{
+    border: 2px solid #555;
+    border-radius: 5px;
+    padding: 2px 4px;
+}
+div.task-name 
+{
+    margin-left: 15px;
+}
+div.task-due-date,
+div.task-priority 
+{
+    margin-right: 15px;
+    margin-bottom: 5px;
+}
+div.task-description 
+{
+    flex-grow: 1;
+    margin-right: 15px;
+    margin-bottom: 10px;
+    overflow: visible; 
+    text-overflow: ellipsis; 
+    white-space: nowrap; 
+    width: calc(100% - 50px);
+}
+.subtasks 
+{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 200px;
+}
+.subtask-container 
+{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: #30313d;
+    border: 2px solid; 
+    border-color: #555;
+    border-radius: 5px;
+    margin-top: 10px; 
+    margin-left: -50px;
+    padding: 10px;
+    width: 200px;
+}
+.subtask-name 
+{
+    font-family: 'Times New Roman', Times, serif;
+    margin: 0 30px;
+}
+.subtask-input 
+{
+    width: 100%; 
+    background-color: #30313d;
+    color: #fff;
+    margin-bottom: 15px;
+}
+.subtask-checkbox 
+{
+    position: relative;
+    bottom: 13px;
+    margin-right: 132px;
+}
+.subtask-trash-icon 
+{
+    position: relative;
+    bottom: 28px;
+    margin-right: 120px;
+}
+.subtask-list 
+{
+    display: flex;
+    flex-direction: column;
+}
+div.search-container 
+{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-top: 40px;
+    margin-right: 30px;
+}
+div.search-container input[type="search"] 
+{
+    background: none;
+    color: #fff;
+    border: 0;
+    border-radius: 8px;
+    border-bottom: 2px solid #30313d;
+    padding: 0 8px;
+    font-family: 'Times New Roman', Times, serif;
+}
+div.search-container input[type="search"]:hover 
+{
+    box-shadow: 0 0 10px rgba(97, 218, 251, 0.7);
+}
+div.search-icon 
+{
+    margin-right: -25px; 
+    fill: #61dafb;
+    filter: drop-shadow(1px 1px 5px #61dafb);
+}
+::-webkit-scrollbar 
+{
+    width: 12px;
+}
+::-webkit-scrollbar-thumb 
+{
+    background: linear-gradient(transparent, #4fc3dc);
+    border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:hover 
+{
+    background: linear-gradient(transparent, #61dafb);
+}
