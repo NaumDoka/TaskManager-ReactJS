@@ -489,3 +489,55 @@ div.search-icon
 {
     background: linear-gradient(transparent, #61dafb);
 }
+.cookie-consent-container 
+{
+    position: fixed;
+    right: -5px;
+    bottom: 0;
+    width: 100%;
+    padding: 10px;
+    z-index: 2;
+} 
+.cookie-consent 
+{
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.5);;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+} 
+.cookie-consent p 
+{
+    margin: 0;
+    color: white;
+    font-family: 'Times New Roman', Times, serif;
+}
+.cookie-consent button 
+{
+    display: flexbox;
+    top: 5px;
+    margin: 10px;
+    margin-right: 60px;
+    margin-left: -30px;
+    background-color: #fff;
+    color: #61dafb;
+    border: none;
+    padding: 4px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.cookie-consent button:hover 
+{
+    background-color: #61dafb;
+    color: white;
+}
+.cookie-close-button 
+{
+    position: absolute;
+    top: 7px;
+    right: 7px;
+    background-color: transparent;
+    color: #000;
+    border: none;
+    cursor: pointer;
+}

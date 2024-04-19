@@ -7,6 +7,7 @@ import { DragDropContext } from "react-beautiful-dnd";
 import * as taskHelpers from "./helpers/taskHelpers";
 import * as noteHelpers from "./helpers/noteHelpers";
 import { handleSubtasksChange } from "./helpers/subtaskHelpers";
+import CookieConsent from "./components/CookieConsent";
 
 function App() {
   const [tasks, setTasks] = useState([]);
@@ -147,6 +148,7 @@ function App() {
             onChange={handleSearchChange}
             placeholder="Search tasks by name or due date..."
           />
+          <CookieConsent />
         </div>
         <TaskColumns
           tasks={tasks}
