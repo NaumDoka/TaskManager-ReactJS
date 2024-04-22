@@ -17,8 +17,8 @@ const CookieConsent = () => {
   };
 
   const handleClosePopup = () => {
-    Cookies.set("acceptedCookies", "");
-    setAcceptedCookies("");
+    Cookies.set("acceptedCookies", false);
+    setAcceptedCookies(false);
   };
 
   if (acceptedCookies !== undefined && acceptedCookies !== "") {
@@ -33,7 +33,7 @@ const CookieConsent = () => {
           personalized content. You can manage your cookie preferences by
           clicking "Cookie Settings.
         </p>
-        <button onClick={handleAcceptCookies}>Accept All</button>
+        <button onClick={handleAcceptCookies}>Accept</button>
         <button onClick={handleDeclineCookies}>Decline</button>
         <button className="cookie-close-button" onClick={handleClosePopup}>
           X
