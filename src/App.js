@@ -3,11 +3,12 @@ import "./App.css";
 import "./index.css";
 import TaskColumns from "./components/TaskColumns";
 import SearchInput from "./components/SearchInput";
+import CookieConsent from "./components/CookieConsent";
+import Dashboard from "./components/Dashboard";
 import { DragDropContext } from "react-beautiful-dnd";
 import * as taskHelpers from "./helpers/taskHelpers";
 import * as noteHelpers from "./helpers/noteHelpers";
 import { handleSubtasksChange } from "./helpers/subtaskHelpers";
-import CookieConsent from "./components/CookieConsent";
 
 function App() {
   const [tasks, setTasks] = useState([]);
@@ -142,6 +143,7 @@ function App() {
           <h1>
             {tasks.filter((t) => t.done).length}/{tasks.length} Completed
           </h1>
+          <Dashboard tasks={tasks} />
           <h2>{getMessage()}</h2>
           <SearchInput
             value={searchVal}
