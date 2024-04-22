@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import "./App.css";
-import "./index.css";
+import "./styles/App.css";
+import "./styles/index.css";
 import TaskColumns from "./components/TaskColumns";
 import SearchInput from "./components/SearchInput";
 import CookieConsent from "./components/CookieConsent";
